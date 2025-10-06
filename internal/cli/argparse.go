@@ -1,15 +1,15 @@
-package argparse
+package cli
 
 import (
-	"csv-cli/csvmetadata"
+	"csv-cli/internal/models"
 	"errors"
 	"flag"
 	"fmt"
 	"strings"
 )
 
-func Parse() (csvmetadata.CSVMetadata, error) {
-	var args csvmetadata.CSVMetadata
+func ParseArgs() (models.CSVMetadata, error) {
+	var args models.CSVMetadata
 
 	// Define flags with default values
 	var delimiter string
@@ -30,15 +30,15 @@ func Parse() (csvmetadata.CSVMetadata, error) {
 
 	var err error
 	if args.Delimiter, err = validateDelimiter(delimiter); err != nil {
-		return csvmetadata.CSVMetadata{}, err
+		return models.CSVMetadata{}, err
 	}
 
 	if args.Quote, err = validateQuote(quote); err != nil {
-		return csvmetadata.CSVMetadata{}, err
+		return models.CSVMetadata{}, err
 	}
 
 	if args.FilePath, err = validateFilePath(); err != nil {
-		return csvmetadata.CSVMetadata{}, err
+		return models.CSVMetadata{}, err
 	}
 	return args, nil
 }

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"csv-cli/argparse"
-	"csv-cli/csv"
+	"csv-cli/internal/cli"
+	"csv-cli/internal/csv"
 	"fmt"
 )
 
 func main() {
-	metadata, err := argparse.Parse()
+	metadata, err := cli.ParseArgs()
 	if err != nil {
 		fmt.Println(err)
 		return

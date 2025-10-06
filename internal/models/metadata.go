@@ -1,4 +1,4 @@
-package csvmetadata
+package models
 
 type CSVMetadata struct {
 	FilePath  string

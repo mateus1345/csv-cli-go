@@ -1,11 +1,11 @@
-package csvparser
+package parser
 
 import (
-	"csv-cli/csvmetadata"
+	"csv-cli/internal/models"
 	"strings"
 )
 
-func ParseLine(line string, metadata csvmetadata.CSVMetadata) ([]string, error) {
+func ParseLine(line string, metadata models.CSVMetadata) ([]string, error) {
 	values := make([]string, 0)
 	ignoreDelimiter := false
 	valueStart := 0
